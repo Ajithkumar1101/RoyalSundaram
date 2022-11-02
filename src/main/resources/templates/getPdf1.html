@@ -1,0 +1,465 @@
+<!-- <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1><a th:href="@{/createPdf}" class="btn btn-secondary btn-sm mb-3"> GENERATE PDF </a>  </h1>
+</body>
+</html> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Covid emailer </title>
+<style type="text/css">
+	img{display:block;margin:0;padding:0;}
+	p{margin:0;padding:0;}
+	body { width: 100%; margin: 0; padding: 0; }
+	.ReadMsgBody {width: 100%; }
+	.ExternalClass { width: 100%; }
+	body { -webkit-text-size-adjust: none;-ms-text-size-adjust: none; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100%; height: 100%; }
+	img { line-height: 100%; outline: none;text-decoration: none; }
+	a img {border: none; }
+	p {margin: 1em 0; }
+	h1, h2, h3, h4, h5, h6 { line-height: 100%; }
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { }
+	h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active { }
+	h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited { }
+	table td { border-collapse: collapse; }
+	.yshortcuts, .yshortcuts a, .yshortcuts a:link, .yshortcuts a:visited, .yshortcuts a:hover, .yshortcuts a font { color: black;text-decoration: none; border-bottom: none; background: none; }
+	a {color: #000000;	text-decoration: none; }
+	.clear { clear:both; }
+	.container { width:600px; max-width: 600px; }
+	.spacing-content { width:20px; }
+	
+	.mob-superb-income-protection{
+		display: none;
+	}
+	
+	@media only screen and (max-width: 640px) {
+	
+	.mob-superb-income-protection{
+		display: block;
+	}	
+
+	.mob-fixed-benefit{
+		font-size:12px!important;
+	}
+	 .cover-valid, .mob-set-your-mind{
+		display:none!important;
+	 }
+	.mob-covid-secure{
+		margin: 0 auto;
+	}
+	.mob-font-line-height{
+		line-height: 100%!important;
+	}
+	
+	.mob-protect-savings{
+		width: 100%!important;
+		margin-left: 5px;
+	}
+	
+	.mob-hide-vertical-line, .mob-hide-vertical-space,
+	.mob-hide-vertical-income-protection-cell{
+		display:none!important;
+	}
+	
+		*[class].container {
+			width: 100% !important;
+			max-width: 100% !important;
+			clear: both !important;
+		}
+	}
+	/* iPhone 5 */
+	@media only screen and (max-width: 550px) {
+		*[class].container {
+			width: 100% !important;
+			max-width: 100% !important;
+			clear: both !important;
+		}
+		*[class].mobHide{ display:none !important; width:100% !important; }
+		td[class="txt-center"] { text-align:center !important;}
+		td[class="column-stack"] { display:block;width:100% !important;}
+		td.fnt-sml font{ font-size:21px !important; line-height:28px !important;}
+		.mob-hide{ display:none; width:100% !important;}
+		td.mob-fullwidth {width:100% !important;max-width:100% !important;clear:both !important;display: block !important;}
+	}
+	@media only screen and (max-width: 320px) {
+		td[class="column-stack"] { display:block;width:100% !important;}
+	}
+	table{outline:0px solid red;} 
+</style>
+</head>
+<body style="background-color:#bfbfbf; margin:0; padding:0;">
+<table width="600" cellspacing="0" cellpadding="0" align="center" class="container">
+<tr>
+	<td><table width="600" cellspacing="0" cellpadding="0" align="center" class="container" style="width:600px;">
+		<tr>
+			<td><table width="100%" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+				<tr>
+					<td><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" style="background-color:#ffffff;width:100%;" width="100%">
+						<tr>
+							<td align="center" bgcolor="#ffffff"><table align="center" border="0" cellpadding="0" cellspacing="0" class="container" width="100%">
+								<tr>
+									<td bgcolor="#ffffff"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">										
+										<tr class="row-1">
+											<td align="right" valign="top" bgcolor="#ffffff"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="right" valign="top" bgcolor="#ffffff" width="100%"><a href="https://www.royalsundaram.in/health-insurance"  target="_blank"><img src="src/main/resources/images/royal_sundaram-top-banner.png" style="display:block;width:100%;" border="0" alt="Get Lifeline Get rid of worry" title="Get Lifeline Get rid of worry"></a>
+													</td>	
+												</tr>
+											</table></td>
+										</tr>
+																			
+										
+											<tr class="row-3">
+											<td align="left" bgcolor="#ffffff" valign="top"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left" valign="top" width="20" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:20px;" width="20" height="1"></td>
+													<td align="left"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+													<tr>
+														<td>
+																<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																<td class="column-stack"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																		<tr><td align="left" valign="top" style="line-height:12px;"><img alt="" height="12" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:12px;" width="1"></td></tr>
+																		<tr>
+																			<td style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #000000; line-height: 24px; font-weight: normal;"><font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #000000; line-height: 24px; font-weight: normal;"><b>Lifeline Health Insurance Plans </b><br>
+Get <b>Classic, Supreme or Elite Plans</b> under Lifeline for Unparalleled Benefits.
+</font></td>
+
+																		</tr>
+																		<tr><td align="left" valign="top" style="line-height:17px;"><img alt="" height="17" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:17px;" width="1"></td></tr>
+																	</table>
+																</td>
+																<td class="column-stack" valign="middle" align="right" style="line-height:50px;"><a href="https://www.royalsundaram.in/health-insurance" target="_blank"><img alt="" width="130" height="38" src="src/main/resources/images/buynow.png" style="display:block;width:130px; height:38;" width="104" class="mob-covid-secure"></a></td>
+																</tr>
+																</table>
+														</td>
+													</tr>
+													</table></td>
+													<td align="left" valign="top" width="30" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:30px;" width="30" height="1"></td>
+												</tr>
+											</table></td>
+										</tr>
+											<tr class="row-3">
+											<td align="left" bgcolor="#ffffff" valign="top"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left" valign="top" width="20" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:20px;" width="20" height="1"></td>
+													<td align="left"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+													<tr>
+														<td>
+																<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																<tr>
+																<td class="column-stack"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																		<tr><td align="left" valign="top" style="line-height:12px;"><img alt="" height="12" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:12px;" width="1"></td></tr>
+																		<tr>
+																			<td style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #000000; line-height: 24px; font-weight: normal;"><font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #000000; line-height: 24px; font-weight: normal;">Lifeline is a holistic indemnity plan from Royal Sundaram that covers the health insurance needs of you and your family. Lifeline comes with very useful features to cater to the different needs of our customers.</font></td>
+
+																		</tr>
+																		<tr><td align="left" valign="top" style="line-height:17px;"><img alt="" height="17" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:17px;" width="1"></td></tr>
+																	</table>
+																</td>
+															
+																</tr>
+																</table>
+														</td>
+													</tr>
+													</table></td>
+													<td align="left" valign="top" width="30" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:30px;" width="30" height="1"></td>
+												</tr>
+											</table></td>
+										</tr>
+																		
+																				
+										<tr class="row-6">
+											<td valign="top" bgcolor="#89c13d"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tr>
+												<td align="left" valign="top" width="20" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:20px;" width="20" height="1" alt=""></td>
+												<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+													<tr>
+														<td align="left" valign="top" style="line-height:23px;"><img alt="" height="23" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:23px;" width="1"></td>
+													</tr>
+													<tr valign="top">
+														<td style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 20px; color: #fff; line-height: 21px; font-weight: bold;text-align: center;"><font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 20px; color: #fff; line-height: 21px; font-weight: bold;text-align: center;">Coverage and Benefits</font></td>
+													</tr>
+													<tr>
+														<td align="left" valign="top" style="line-height:10px;"><img alt="" height="10" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:10px;" width="1"></td>
+													</tr>
+													<tr>
+														<td align="left" valign="top" style="line-height:10px;"><img alt="" height="10" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:10px;" width="1"></td>
+													</tr>
+													<tr>
+														<td align="left" valign="top" style="line-height:10px;"><img alt="" height="10" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:10px;" width="1"></td>
+													</tr>
+													<tr valign="top">
+														<td align="left">
+															<table border="0" cellpadding="0" cellspacing="0" width="100%">														
+															<tr>
+																<td class="column-stack" align="left" width="250">
+																	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																		<tr>
+																			<td align="left" style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff; line-height: 21px; font-weight: bold;vertical-align:top;" class="mob-font-line-height">
+																				<img src="src/main/resources/images/Widest-Sum.png" style="width: 60px;height: 60px;display: block;">
+
+																				<font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff;line-height: 21px; font-weight: normal;display: block;padding-top:10px;height: 120px;" class="mob-font-line-height">Widest Sum Insured from INR 2 lacs to 1.5 Cr</font>
+																						<img src="src/main/resources/images/Worldwide_Emergency.png" style="width: 60px;height: 60px;display: block;">
+
+																				<font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff;line-height: 21px; font-weight: normal;display: block;padding-top:10px;height: 120px;" class="mob-font-line-height">Worldwide Emergency Hospitalisation upto <br>INR 20 Lakhs</font>
+																				<img src="src/main/resources/images/Animal_Bite.png" style="width: 60px;height: 60px;display: block;">
+
+																				<font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff;line-height: 21px; font-weight: normal;display: block;padding-top:10px;height: 60px;" class="mob-font-line-height">Vaccination in case of Animal Bite</font>
+
+
+																			</td>
+																			<td align="left" valign="top" width="7"><img src="src/main/resources/images/spacer.png" style="display:block; width:7px;" width="5" height="1"></td>
+																			<td align="left" valign="top" width="1" height="90" class="mob-hide-vertical-income-protection-cell" style="background: #fff;width: 1px;height: 80px;">
+																				
+																			</td>
+																		</tr>																		
+																     </table>																
+																</td>
+																<td class="mob-superb-income-protection">
+																		<img alt="" height="15" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:15px;" width="1">
+																</td>
+																	<td class="column-stack" align="left" width="250">
+																	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																		<tr>
+																			<td align="left" valign="top" width="10" class="mob-hide-vertical-space"><img src="src/main/resources/images/spacer.png" style="display:block; width:10px;" width="10" height="1"></td>
+																			<td align="left" style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff; line-height: 21px; font-weight: bold;vertical-align:top;" class="mob-font-line-height">
+																				<img src="src/main/resources/images/Reload_Benefit.png" style="width: 60px;height: 60px;display: block;">
+
+																				<font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff;line-height: 21px; font-weight: normal;display: block;padding-top:10px;height: 120px;" class="mob-font-line-height">Reload Benefit Doubles your Sum Insured at No Extra Cost</font>
+
+											<img src="src/main/resources/images/Double_Sum.png" style="width: 60px;height: 60px;display: block;">
+
+																				<font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff;line-height: 21px; font-weight: normal;display: block;padding-top:10px;height: 120px;" class="mob-font-line-height">Double Your Sum Insured 
+in 5 Claim-Free Years with our Accelerated <br>
+No-Claim Bouns</font>
+<img src="src/main/resources/images/Emergency_Domestic.png" style="width: 60px;height: 60px;display: block;">
+
+																				<font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff;line-height: 21px; font-weight: normal;display: block;padding-top:10px;height: 60px;" class="mob-font-line-height">Emergency Domestic 
+Evacuation</font>
+																			</td>
+																			<td align="left" valign="top" width="7"><img src="src/main/resources/images/spacer.png" style="display:block; width:7px;" width="5" height="1"></td>
+																			<td align="left" valign="top" width="1" height="80" class="mob-hide-vertical-income-protection-cell" style="background: #fff;width: 1px;height: 80px;">
+																				
+																			</td>
+																		</tr>																		
+																     </table>																
+																</td>
+																<td class="mob-superb-income-protection">
+																		<img alt="" height="15" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:15px;" width="1">
+																</td>
+																	<td class="column-stack" align="left" width="250">
+																	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																		<tr>
+																			<td align="left" valign="top" width="10" class="mob-hide-vertical-space"><img src="src/main/resources/images/spacer.png" style="display:block; width:10px;" width="10" height="1"></td>
+																			<td align="left" style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff; line-height: 21px; font-weight: bold;vertical-align:top;" class="mob-font-line-height">
+																				<img src="src/main/resources/images/International _Cover.png" style="width: 60px;height: 60px;display: block;">
+
+																				<font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff;line-height: 21px; font-weight: normal;display: block;padding-top:10px;height: 120px;" class="mob-font-line-height">International Cover for 11 Specified Critical Illness</font>
+																				<img src="src/main/resources/images/Wellness_Benefits.png" style="width: 60px;height: 60px;display: block;">
+
+																				<font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff;line-height: 21px; font-weight: normal;display: block;padding-top:10px;height: 120px;" class="mob-font-line-height">Wellness Benefits, E-Chat with Doctors and Free Health Check-Up</font>
+																				<img src="src/main/resources/images/Doctors.png" style="width: 60px;height: 60px;display: block;">
+
+																				<font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #fff;line-height: 21px; font-weight: normal;display: block;padding-top:10px;height: 60px;" class="mob-font-line-height">Serviced by a Dedicated Team of Doctors</font>
+
+																			</td>
+																			<td align="left" valign="top" width="7"><img src="src/main/resources/images/spacer.png" style="display:block; width:7px;" width="5" height="1"></td>
+																			
+																		</tr>																		
+																     </table>																
+																</td>
+															</tr>															
+															</table>
+														</td>
+													</tr>	
+
+												
+
+													<tr>
+														<td align="left" valign="top" style="line-height:22px;"><img alt="" height="22" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:22px;" width="1"></td>
+													</tr>														
+																				
+												</table></td>
+												<td align="left" valign="top" width="20" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:20px;" width="20" height="1" alt=""></td>
+											</tr>
+											</table></td>
+										</tr>									
+										<tr class="row-3">
+											<td align="left" bgcolor="#ffffff" valign="top"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tbody><tr>
+													<td align="left" valign="top" width="20" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:20px;" width="20" height="1"></td>
+													<td align="left"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+													<tbody><tr>
+														<td>
+																<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																<tbody><tr>
+																<td class="column-stack"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																		<tbody><tr><td align="left" valign="top" style="line-height:12px;"><img alt="" height="12" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:12px;" width="1"></td></tr>
+																		<tr>
+																			<td style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #000000; line-height: 24px; font-weight: normal;"><font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #000000; line-height: 24px; font-weight: normal;">Lifeline is offered as an Individual plan and as a Family Floater plan for yourself, your spouse and children.</font></td>
+
+																		</tr>
+																		<tr><td align="left" valign="top" style="line-height:17px;"><img alt="" height="17" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:17px;" width="1"></td></tr>
+																	</tbody></table>
+																</td>
+															
+																</tr>
+																</tbody></table>
+														</td>
+													</tr>
+													</tbody></table></td>
+													<td align="left" valign="top" width="30" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:30px;" width="30" height="1"></td>
+												</tr>
+											</tbody></table></td>
+										</tr>
+										<tr class="row-3">
+											<td align="left" bgcolor="#ffffff" valign="top"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tbody><tr>
+													<td align="left" valign="top" width="20" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:20px;" width="20" height="1"></td>
+													<td align="left"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+													<tbody><tr>
+														<td>
+																<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																<tbody><tr>
+																<td class="column-stack"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																		<tbody><tr><td align="left" valign="top" style="line-height:12px;"><img alt="" height="12" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:12px;" width="1"></td></tr>
+																		<tr>
+																			<td style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #000000; line-height: 24px; font-weight: normal;"><font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #000000; line-height: 24px; font-weight: normal;"><b>Lifeline</b><br>
+Matchless On Every Count.
+
+</font></td>
+
+																		</tr>
+																		<tr><td align="left" valign="top" style="line-height:17px;"><img alt="" height="17" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:17px;" width="1"></td></tr>
+																	</tbody></table>
+																</td>
+																<td class="column-stack" valign="middle" align="right" style="line-height:50px;"><a href="https://www.royalsundaram.in/health-insurance" target="_blank"><img alt="" width="130" height="38" src="src/main/resources/images/buynow.png" style="display:block;width:130px; height:38;" class="mob-covid-secure"></a></td>
+																</tr>
+																</tbody></table>
+														</td>
+													</tr>
+													</tbody></table></td>
+													<td align="left" valign="top" width="30" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:30px;" width="30" height="1"></td>
+												</tr>
+											</tbody></table></td>
+										</tr>	
+													<tr class="row-8">
+											<td align="top" bgcolor="#fff"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tr>
+												<td align="left" align="top" width="15"><img src="src/main/resources/images/spacer.png" style="display:block; width:15px;" width="15" height="1" alt=""></td>
+												<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+													<tr>
+														<td align="left" align="top" style="line-height:10px;"><img alt="" height="10" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:10px;" width="1"></td>
+													</tr>
+												
+													<tr>
+														<td style="font-family: 'Times New Roman', sans-serif;font-size: 18px; color: #000; line-height:11px; font-weight: normal;border:1.2px solid #fedc89;height: 70px;text-align: center;text-transform: uppercase;vertical-align: top;padding-top: 20px;"><font style="font-family: 'Times New Roman', sans-serif;font-size: 18px; color: #000; line-height: 11px; font-weight: bold;text-align: center;">Contact</font></td>
+													</tr>
+													<tr>
+														<td align="left" valign="top" style="line-height:7px;"><img alt="" height="7" src="src/main/resources/images/spacer.png" style="display:block; height:7px;" width="1"></td>
+													</tr>											
+																
+													<tr>
+														<td align="left" valign="top" style="line-height:5px;"><img alt="" height="5" src="src/main/resources/images/spacer.png" style="display:block; height:5px;" width="1"></td>
+													</tr>														
+												
+																											
+													
+												
+																											
+																										
+												</table></td>
+												<td align="left" valign="top" width="10" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:10px;" width="10" height="1" alt=""></td>
+											</tr>
+											</table></td>
+										</tr>
+												<tr class="row-3">
+											<td align="left" bgcolor="#ffffff" valign="top"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tbody><tr>
+													<td align="left" valign="top" width="20" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:20px;" width="20" height="1"></td>
+													<td align="left"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+													<tbody><tr>
+														<td>
+																<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																<tbody><tr>
+																<td class="column-stack"><table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+																		<tbody><tr><td align="left" valign="top" style="line-height:12px;"><img alt="" height="12" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:12px;" width="1"></td></tr>
+																		<tr>
+																			<td style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 18px; color: #054A95; line-height: 24px; font-weight: bold;text-align: center;"><font style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size: 16px; color: #054A95; line-height: 24px; font-weight: normal;"><span><a href="tel:1860 425 0000 " style="color: #054A95;text-decoration: none;"> Call <span style="font-size: 18px;font-weight: bold;">1860 425 0000</span> </a>  |  <a href="https://www.royalsundaram.in/" target="_blank"  style="color: #054A95;text-decoration: none;"> Visit 
+																				<span style="font-size: 18px;font-weight: bold;">www.royalsundaram.in</span></a></span></font></td>
+
+																		</tr>
+																		<tr><td align="left" valign="top" style="line-height:17px;"><img alt="" height="17" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:17px;" width="1"></td></tr>
+																	</tbody></table>
+																</td>
+															
+																</tr>
+																</tbody></table>
+														</td>
+													</tr>
+													</tbody></table></td>
+													<td align="left" valign="top" width="30" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:30px;" width="30" height="1"></td>
+												</tr>
+											</tbody></table></td>
+										</tr>						
+											<tr class="row-8">
+											<td align="top" bgcolor="#054A95"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+											<tr>
+												<td align="left" align="top" width="15"><img src="src/main/resources/images/spacer.png" style="display:block; width:15px;" width="15" height="1" alt=""></td>
+												<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+													<tr>
+														<td align="left" align="top" style="line-height:10px;"><img alt="" height="10" src="src/main/resources/images/spacer.png" style="display:block;width:1px; height:10px;" width="1"></td>
+													</tr>
+													<tr>
+														<td style="font-family: 'Times New Roman', sans-serif;font-size: 9px; color: #FFFFFF; line-height: 11px; font-weight: bold;"><font style="font-family: 'Times New Roman', sans-serif;ffont-size: 9px; color: #FFFFFF; line-height: 11px; font-weight: bold;">Disclaimer: </font></td>
+													</tr>
+													<tr>
+														<td style="font-family: 'Times New Roman', sans-serif;font-size: 9px; color: #EDEDF5; line-height:11px; font-weight: normal;"><font style="font-family: 'Times New Roman', sans-serif;font-size: 9px; color: #EDEDF5; line-height: 11px; font-weight: normal;">
+Health Insurance product is underwritten and issued by Royal Sundaram General Insurance Co. Limited. Claims will be settled by Royal Sundaram General Insurance Co. Limited as per the terms and conditions of the policy. This document is not a contract of Insurance. Please refer policy document for exact terms and conditions and specific details applicable to this Insurance. Your participation in this insurance product is purely on a voluntary basis. We advise you to take your own professional advice before you participate. The Health Insurance product of Royal Sundaram is approved by IRDAI. 
+IRDAI Registration No.102  |  CIN:U67200TN2000PLC045611  |  UIN No.: IRDAI/HLT/RSAI/P-H/V.II/32/15-16  |  ADVT. No. RS-NL-2020-21-33</font></td>
+													</tr>
+													<tr>
+														<td align="left" valign="top" style="line-height:7px;"><img alt="" height="7" src="src/main/resources/images/spacer.png" style="display:block; height:7px;" width="1"></td>
+													</tr>	
+												
+														
+																									
+																
+													<tr>
+														<td align="left" valign="top" style="line-height:5px;"><img alt="" height="5" src="src/main/resources/images/spacer.png" style="display:block; height:5px;" width="1"></td>
+													</tr>														
+												
+																											
+													
+												
+																											
+																										
+												</table></td>
+												<td align="left" valign="top" width="10" class="spacing-content"><img src="src/main/resources/images/spacer.png" style="display:block; width:10px;" width="10" height="1" alt=""></td>
+											</tr>
+											</table></td>
+										</tr>
+																		
+									</table></td>
+								</tr>
+							</table></td>
+						</tr>
+					</table></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table></td>
+</tr>
+</table>
+</body>
+</html>
