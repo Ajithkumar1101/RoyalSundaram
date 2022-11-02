@@ -1,17 +1,23 @@
-package com.prodian.QRcontroller;
- import com.prodian.QrCodeService.*;
-import java.io.IOException;
-import java.util.Base64;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+package com.prodian.controller;
+ 
+ 
 
 import com.google.zxing.WriterException;
 import com.prodian.QRcodeModel.qrcodemodel;
 import com.prodian.QRrepos.QrCodeRepository;
+import com.prodian.service.QRCODEGenerator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.io.IOException;
+import java.util.Base64;
+
 @RestController
 public class QRController {
 	

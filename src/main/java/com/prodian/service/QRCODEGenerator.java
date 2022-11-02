@@ -1,4 +1,4 @@
-package com.prodian.QrCodeService;
+package com.prodian.service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
