@@ -23,6 +23,9 @@ public class QRController {
 	@Autowired
 	private QrCodeRepository qrCodeRepository;
 
+	@Autowired
+	GeneratePdfController generatePdfController;
+	
 	private static final String QR_CODE_IMAGE_PATH = "D://image.png";
 
 	@PostMapping("/createqr")
@@ -40,6 +43,8 @@ public class QRController {
 		try {
 			// Convert Byte Array into Base64 Encode String
 //          String qrcode = Base64.getEncoder().encodeToString(image);
+					
+			
 			Encoder encoder = Base64.getEncoder();
 			String originalString = link.split("=")[1];
 			String encodedString = encoder.encodeToString(originalString.getBytes());
