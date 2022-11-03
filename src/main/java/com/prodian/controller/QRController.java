@@ -1,6 +1,4 @@
 package com.prodian.controller;
- 
- 
 
 import com.google.zxing.WriterException;
 import com.prodian.QRcodeModel.qrcodemodel;
@@ -17,47 +15,52 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.Base64;
+import java.util.Base64.Encoder;
 
 @RestController
 public class QRController {
-	
+
 	@Autowired
 	private QrCodeRepository qrCodeRepository;
 
- private static final String QR_CODE_IMAGE_PATH = "D://image.png";
+	private static final String QR_CODE_IMAGE_PATH = "D://image.png";
 
-    
- 
-    
-     @PostMapping("/createqr")
-    public qrcodemodel getQRCode (@RequestBody qrcodemodel model,Model modal){
+	@PostMapping("/createqr")
+	public qrcodemodel getQRCode(@RequestBody qrcodemodel model, Model modal) {
 
-    	String link = model.getQrLink();
-    	String name=model.getQrname();
-    	qrcodemodel action = qrCodeRepository.save(model);
-    	
-    	qrcodemodel response = action;
-    	
+		String link = model.getQrLink();
+		System.out.println(link + "demo hh23");
 
-        byte[] image = new byte[0];
-        try {
+		String name = model.getQrname();
+		qrcodemodel action = qrCodeRepository.save(model);
 
-            // Generate and Return Qr Code in Byte Array
-            image = QRCODEGenerator.getQRCodeImage(link,250,250);
+		qrcodemodel response = action;
 
-            // Generate and Save Qr Code Image in static/image folder
-            QRCODEGenerator.generateQRCodeImage(link,250,250,"D://"+name+".png");
+		byte[] image = new byte[0];
+		try {
+			// Convert Byte Array into Base64 Encode String
+//          String qrcode = Base64.getEncoder().encodeToString(image);
+			Encoder encoder = Base64.getEncoder();
+			String originalString = link.split("=")[1];
+			String encodedString = encoder.encodeToString(originalString.getBytes());
+			link = link.split("=")[0] + "=" + encodedString + "&&encoded=true";
 
-        } catch (WriterException | IOException e) {
-            e.printStackTrace();
-        }
-        // Convert Byte Array into Base64 Encode String
-        String qrcode = Base64.getEncoder().encodeToString(image);
+			// Generate and Return Qr Code in Byte Array
+			image = QRCODEGenerator.getQRCodeImage(link, 250, 250);
 
-        modal.addAttribute("medium",link);
-        modal.addAttribute("github",link);
-        modal.addAttribute("qrcode",qrcode);
+			// Generate and Save Qr Code Image in static/image folder
+			QRCODEGenerator.generateQRCodeImage(link, 250, 250, "D:\\QR\\DEM\\" + name + ".png");
 
-        return response;
-    }
+		} catch (WriterException | IOException e) {
+			e.printStackTrace();
+		}
+
+		modal.addAttribute(link);
+		modal.addAttribute(link);
+		modal.addAttribute(link);
+		response.setQrId(action.getQrId());
+		response.setQrname(action.getQrname());
+		response.setQrLink(link);
+		return response;
+	}
 }
