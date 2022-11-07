@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -10,8 +10,8 @@
 <table width="750" border="0" cellspacing="0" cellpadding="0" align="center">
   <tbody>
     <tr>
-      <td>
-      <a href="https://my.royalsundaram.in/health-insurance/advanced-top-up" target="_blank"><img src="src/main/resources/images/Mailer-V2.jpg" width="100%"></a>
+      <td th:with="link=${Link.link}">
+      <a th:text="${link}" target="_blank"><img src="src/main/resources/images/Mailer-V2.jpg" width="100%"></a>
       </td>
     </tr>
   </tbody>
@@ -20,3 +20,5 @@
 
 </body>
 </html>
+
+<!-- href="https://my.royalsundaram.in/health-insurance/advanced-top-up"  -->

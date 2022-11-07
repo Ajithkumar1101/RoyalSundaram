@@ -1,9 +1,16 @@
 package com.prodian.controller;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.Base64.Encoder;
+import org.apache.commons.io.IOUtils;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -13,6 +20,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,15 +30,23 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import com.google.zxing.WriterException;
+import com.itextpdf.text.DocumentException;
 import com.prodian.service.GeneratePdfService;
 import com.prodian.service.QRCODEGenerator;
 
 @RestController
 public class GeneratePdfController {
 
+	@Autowired
+	SpringTemplateEngine templateEngine;
+	
 	private GeneratePdfService generatePdfService;
+	
 
 	@Autowired
 	public GeneratePdfController(GeneratePdfService generatePdfService) {
@@ -56,7 +73,7 @@ public class GeneratePdfController {
 	}
 
 	@PostMapping(value = "/excel" ,consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-	public String excelReader(@RequestParam("excel") MultipartFile excel) {
+	public String excelReader(@RequestParam("excel") MultipartFile excel) throws DocumentException {
 		
 		
 		try {
@@ -71,15 +88,15 @@ public class GeneratePdfController {
 				}
 				HSSFCell rownum = row.getCell(0);
 //				System.out.println(rownum);
-				String link = "https://my.royalsundaram.in/health-insurance/lifeline?agent_code=AG000954";
+				String link = "https://my.royalsundaram.in/health-insurance/advanced-top-up?agent_code=AG039999";
 				Encoder encoder = Base64.getEncoder();
 				String originalString = rownum.toString();
 				String encodedString = encoder.encodeToString(originalString.getBytes());
 				link = link.split("=")[0] + "=" + encodedString + "&&encoded=true";
-				System.out.println(link);
+			//	System.out.println(originalString);
+				//		System.out.println(link);
 				// Generate and Return Qr Code in Byte Array
 				byte[] image = new byte[0];
-//				image = QRCODEGenerator.getQRCodeImage(link, 250, 250);
 //				Create directory
 				String path = null;
 				path = "D://QR/"+originalString;
@@ -87,8 +104,29 @@ public class GeneratePdfController {
 				// Generate and Save Qr Code Image in static/image folder
 				QRCODEGenerator.generateQRCodeImage(link, 250, 250, path+"/"+originalString+".png");
 
-			//	System.out.println("  ");
+				// FOR PDF 
+				Path pdfPath = Paths.get("src\\main\\resources\\templates\\Mailer-V2.jpg");
+				//call converttobase64 method for change image to base64 format
+				String base64Image = convertToBase64(pdfPath);
+				String insertImage = "data:image/png;base64, " + base64Image;
+			
+				Context context = new Context();
+				
+				context.setVariable("link", link);
+				context.setVariable("image", insertImage);
+				ITextRenderer renderer = new ITextRenderer();
+				
+				String htmlContentToRender = templateEngine.process("royalsundaram", context);
+
+				renderer.setDocumentFromString(htmlContentToRender);
+				renderer.layout();
+				OutputStream outputStream = new FileOutputStream("D://QR/"+originalString +"/"+ originalString + ".pdf");
+				final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				baos.writeTo(outputStream);
+				renderer.createPDF(outputStream);
+				outputStream.close();
 			}
+			return "successsssss";
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -98,6 +136,20 @@ public class GeneratePdfController {
 		}
 		
 		return "SUCCESS";
+	}
+	
+	private String convertToBase64(Path path) {
+		byte[] imageAsBytes = new byte[0];
+		try {
+			Resource resource = new UrlResource(path.toUri());
+			InputStream inputStream = resource.getInputStream();
+			imageAsBytes = IOUtils.toByteArray(inputStream);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return Base64.getEncoder().encodeToString(imageAsBytes);
 	}
 	
 }
