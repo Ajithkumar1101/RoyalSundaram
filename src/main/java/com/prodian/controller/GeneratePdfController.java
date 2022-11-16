@@ -16,6 +16,7 @@ import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -88,39 +89,43 @@ public class GeneratePdfController {
 				}
 				HSSFCell rownum = row.getCell(0);
 //				System.out.println(rownum);
-				String link = "https://my.royalsundaram.in/health-insurance/advanced-top-up?agent_code=AG039999";
+				String link = "https://my.royalsundaram.in/health-insurance/arogya-sanjeevani?agent_code=QUcwMzk5OTk";
 				Encoder encoder = Base64.getEncoder();
 				String originalString = rownum.toString();
 				String encodedString = encoder.encodeToString(originalString.getBytes());
 				link = link.split("=")[0] + "=" + encodedString + "&&encoded=true";
 			//	System.out.println(originalString);
-				//		System.out.println(link);
+			//	System.out.println(link);
 				// Generate and Return Qr Code in Byte Array
 				byte[] image = new byte[0];
 //				Create directory
 				String path = null;
-				path = "D://QR/"+originalString;
+				path = "D://QR/";
 				new File(path).mkdir();
 				// Generate and Save Qr Code Image in static/image folder
-				QRCODEGenerator.generateQRCodeImage(link, 250, 250, path+"/"+originalString+".png");
+				QRCODEGenerator.generateQRCodeImage(link, 250, 250, path+"/"+"index_"+originalString+".png");
 
 				// FOR PDF 
-				Path pdfPath = Paths.get("src\\main\\resources\\templates\\Mailer-V2.jpg");
+				Path pdfPath = Paths.get("src\\main\\resources\\templates\\Arogya Sanjeevani Policy_pages-to-jpg-0001.jpg");
+				Path pdfPath1 = Paths.get("src\\main\\resources\\templates\\Arogya Sanjeevani Policy_pages-to-jpg-0002.jpg");
 				//call converttobase64 method for change image to base64 format
 				String base64Image = convertToBase64(pdfPath);
+				String base64Image1 = convertToBase64(pdfPath1);
 				String insertImage = "data:image/png;base64, " + base64Image;
-			
+				String insertImage1 = "data:image/png;base64, " + base64Image1;
+				
 				Context context = new Context();
 				
 				context.setVariable("link", link);
 				context.setVariable("image", insertImage);
+				context.setVariable("image1", insertImage1);
 				ITextRenderer renderer = new ITextRenderer();
 				
 				String htmlContentToRender = templateEngine.process("royalsundaram", context);
 
 				renderer.setDocumentFromString(htmlContentToRender);
 				renderer.layout();
-				OutputStream outputStream = new FileOutputStream("D://QR/"+originalString +"/"+ originalString + ".pdf");
+				OutputStream outputStream = new FileOutputStream("D://PDF/"+"index_"+originalString + ".pdf");
 				final ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				baos.writeTo(outputStream);
 				renderer.createPDF(outputStream);
